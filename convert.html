@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Converter App</title>
+        <meta charset ="utf-8">
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style6.css">
+        <link>
+        <link>
+    </head>
+    <body>
+        <div class="main">
+            <h1 class ="title">Simple</h1>
+            <h2>Converter App</h2>
+            <h5 class="subtitle">Select Category</h5>
+            <select id="conversion-Category" class="select-category">
+                <option value=""> - Select - </option>
+                <option value="distance">Distance</option>
+                <option value= "temperature">Temperature</option>
+                <option value="money">Money</option>
+            </select>
+
+            <div class="container">
+                <div class="conversion" id ="distance">
+                    <h2 class="category-title">Distance</h2>
+                    <input type="number" id ="distanceInput" class ="input" placeholder="Enter Value">
+                    <select id="fromDistanceUnit" class ="unit-select">
+                       <option value="miles">Miles</option>
+                       <option value ="kilometers">Kilometers</option>
+                    </select>
+                    <span class="arrow">--></span>
+                    <select id="toDistanceUnit" class="unit-select">
+                        <option value="miles">Miles</option>
+                        <option value="kilometers">Kilometers</option>
+                    </select>
+                    <button id="distanceConvertBtn" class="convert-btn">
+                        Convert    
+                    </button>
+                    <div class="result">
+                        <p id="distanceResult">
+                            result will be here
+                        </p>
+                    </div>
+                </div>
+                <!--New conversion starts here-->
+                 <div class="conversion" id ="temperature">
+                    <h2 class="category-title">Temperature</h2>
+                    <input type="number" id ="temperatureInput" class ="input" placeholder="Enter Value">
+                    <select id="fromTemperatureUnit" class ="unit-select">
+                       <option value="celsius">Celsius</option>
+                       <option value ="fahrenheit">Fahrenheit</option>
+                    </select>
+                    <span class="arrow">--></span>
+                    <select id="toTemperatureUnit" class="unit-select">
+                        <option value="celsius">Celsius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                    </select>
+                    <button id="temperatureConvertBtn" class="convert-btn">
+                        Convert    
+                    </button>
+                    <div class="result">
+                        <p id="temperatureResult">
+                            result will be here
+                        </p>
+                    </div>
+                </div>
+                <!--New conversion starts here-->
+                 <div class="conversion" id ="currency">
+                    <h2 class="category-title">Currency</h2>
+                    <input type="number" id ="currencyInput" class ="input" placeholder="Enter Value">
+                    <select id="fromCurrencyUnit" class ="unit-select">
+                       <option value="ttd">TTD</option>
+                       <option value ="usd">USD</option>
+                    </select>
+                    <span class="arrow">--></span>
+                    <select id="toCurrencyUnit" class="unit-select">
+                        <option value="ttd">TTD</option>
+                        <option value="usd">USD</option>
+                    </select>
+                    <button id="currencyConvertBtn" class="convert-btn">
+                        Convert    
+                    </button>
+                    <div class="result">
+                        <p id="currencyResult">
+                            result will be here
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <script src="js/ConvertApp.js"></script>
+    </body>
+</html>
