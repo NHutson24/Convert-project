@@ -24,24 +24,12 @@ function disfFn(){
 
     let result = 0;
 
-    //input validation
-    if (isNaN(value) || value === "" || value < 0) {
-    document.getElementById("distanceResult").textContent = "Please enter a valid positive number.";
-    return;
-    }
-
     if(fromUnit === "miles" && toUnit === "kilometers"){
         result = (value) * 1.60934;
     }
     else if(fromUnit === "kilometers" && toUnit === "miles"){
         result = (value) * 0.621371;
     }
-    else if (fromUnit === toUnit) {
-    document.getElementById("distanceResult").textContent =
-        `Result: ${value} ${toUnit} (no conversion needed)`;
-        return;
-    }
-
 
     document.getElementById("distanceResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
 }
@@ -53,24 +41,12 @@ function tempFn(){
     
     let result = 0;
 
-    //input validation
-    if (isNaN(value) || value === "" || value < 0) {
-    document.getElementById("distanceResult").textContent = "Please enter a valid positive number.";
-    return;
-    }
-
     if(fromUnit === "celsius" && toUnit === "fahrenheit"){
         result = (value * 9/5) + 32;
     }
     else if(fromUnit === "fahrenheit" && toUnit === "celsius"){
         result = (value - 32) * 5/9;
     }
-    else if (fromUnit === toUnit) {
-    document.getElementById("distanceResult").textContent =
-        `Result: ${value} ${toUnit} (no conversion needed)`;
-        return;
-    }
-
     
     document.getElementById("temperatureResult").textContent = `Result: ${result.toFixed(2)} °${toUnit === "celsius" ? "C" : "F"}`;
 }
@@ -87,12 +63,6 @@ function currencyFn(){
         "TTD": { "USD": 0.147 }
     };
 
-    //input validation
-    if (isNaN(value) || value === "" || value < 0) {
-    document.getElementById("distanceResult").textContent = "Please enter a valid positive number.";
-    return;
-    }
-
     if (fromUnit === toUnit){
         document.getElementById("currencyResult").textContent = `Result: ${value.toFixed(2)} ${toUnit}`;
         return;
@@ -105,6 +75,4 @@ function currencyFn(){
     }
 
     result = value * rates[fromUnit][toUnit];
-
-    document.getElementById("currencyResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
 }
