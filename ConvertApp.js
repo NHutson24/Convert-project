@@ -32,3 +32,49 @@ function disfFn(){
 
     document.getElementById("distanceResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
 }
+
+function tempFn(){
+    let value = parseFloat(document.getElementById("temperatureInput").value);
+    let fromUnit = document.getElementById("fromTemperatureUnit").value;
+    let toUnit = document.getElementById("toTemperatureUnit").value;
+    
+    let result = 0;
+
+    if(fromUnit === "celsius" && toUnit === "fahrenheit"){
+        result = (value * 9/5) + 32;
+    }
+    else if(fromUnit === "fahrenheit" && toUnit === "celsius"){
+        result = (value - 32) * 5/9;
+    }
+    
+    document.getElementById("temperatureResult").textContent = `Result: ${result.toFixed(2)} °${toUnit === "celsius" ? "C" : "F"}`;
+}
+
+function currencyFn(){
+    let value = parseFloat(document.getElementById("currencyInput").value);
+    let fromUnit = document.getElementById("fromCurrencyUnit").value;
+    let toUnit = document.getElementById("toCurrencyUnit").value;
+
+    let result = 0;
+
+    const rates = {
+        "USD": { "TTD": 6.8 },
+        "TTD": { "USD": 0.147 }
+    };
+
+
+    /*Currency conversion, if the fromUnit
+    and toUnit are different, it looks up  coversion value
+    in rates[fromUnit][toUnit] and multiplies it by the input value,
+    then stores it in result.
+    
+    Else if currency are the same then result = value. */
+
+    if(fromUnit !== toUnit){
+        result = value * rates[fromUnit][toUnit];
+    } else {
+        result = value;
+    }
+
+    document.getElementById("currencyResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
+}
