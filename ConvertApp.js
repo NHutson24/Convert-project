@@ -63,37 +63,18 @@ function currencyFn(){
         "TTD": { "USD": 0.147 }
     };
 
-
-    /*Currency conversion, if the fromUnit
-    and toUnit are different, it looks up  coversion value
-    in rates[fromUnit][toUnit] and multiplies it by the input value,
-    then stores it in result.
-    
-    Else if currency are the same then result = value. */
-
-    if(fromUnit !== toUnit){
-        result = value * rates[fromUnit][toUnit];
-    } else {
-        result = value;
-    }
-
-    // Handle case where conversion rate is not available
-    if (isNaN(result)) {
-        document.getElementById("currencyResult").textContent = `Result: Conversion rate not available for selected currencies.`;
+    if (fromUnit === toUnit){
+        document.getElementById("currencyResult").textContent = `Result: ${value.toFixed(2)} ${toUnit}`;
         return;
     }
 
-    // Final result assignment
-    if (fromUnit === toUnit) {
-        result = value;
-    }
-    else if (rates[fromUnit] && typeof rates[fromUnit][toUnit] === "number"){
-        result = value * rates[fromUnit][toUnit];
-    }
-    else {
-        document.getElementById("currencyResult").textContent = `Result: Conversion rate not available for selected currencies.`;
+    //check if the conversion rate exists
+    if (!rates[fromUnit] || !rates[fromUnit][toUnit]) {
+        document.getElementById("currencyResult").textContent = `Conversion rate from ${fromUnit} to ${toUnit} not available.`;
         return;
     }
+
+    result = value * rates[fromUnit][toUnit];
 
     document.getElementById("currencyResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
 }
