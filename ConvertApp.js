@@ -75,4 +75,6 @@ function currencyFn(){
     }
 
     result = value * rates[fromUnit][toUnit];
+    
+    document.getElementById("currencyResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
 }
