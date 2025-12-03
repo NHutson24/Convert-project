@@ -4,16 +4,17 @@ forms.forEach((form) => (form.style.display = 'none'));
 let categorySelect = document.getElementById('conversion-Category');
 
 categorySelect.addEventListener("change", function() {
-    let userInput = catergorySelect.value;
+    let userInput = categorySelect.value;
     
     forms.forEach((form) => (form.style.display = 'none'));
 
     document.getElementById(userInput).style.display = 'block';
 });
 
-document.getElementById("distanceConvertBtn").addEventListener("click", disfFn);
-document.getElementById("temperatureConvertBtn").addEventListener("click", tempFn);
-document.getElementById("currencyCOnvertBtn").addEventListener("click", currencyFn);
+// Using optional chaining to safely add event listeners
+document.getElementById("distanceConvertBtn")?.addEventListener("click", disfFn);
+document.getElementById("temperatureConvertBtn")?.addEventListener("click", tempFn);
+document.getElementById("currencyConvertBtn")?.addEventListener("click", currencyFn);
 
 
 function disfFn(){
