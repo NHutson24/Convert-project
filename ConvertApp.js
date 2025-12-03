@@ -77,5 +77,23 @@ function currencyFn(){
         result = value;
     }
 
+    // Handle case where conversion rate is not available
+    if (isNaN(result)) {
+        document.getElementById("currencyResult").textContent = `Result: Conversion rate not available for selected currencies.`;
+        return;
+    }
+
+    // Final result assignment
+    if (fromUnit === toUnit) {
+        result = value;
+    }
+    else if (rates[fromUnit] && typeof rates[fromUnit][toUnit] === "number"){
+        result = value * rates[fromUnit][toUnit];
+    }
+    else {
+        document.getElementById("currencyResult").textContent = `Result: Conversion rate not available for selected currencies.`;
+        return;
+    }
+
     document.getElementById("currencyResult").textContent = `Result: ${result.toFixed(2)} ${toUnit}`;
 }
